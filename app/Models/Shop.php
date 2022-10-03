@@ -12,4 +12,7 @@ class Shop extends Model
         "shop_name"
     ];
     protected $table="Shop";
+    public function Order(){
+        return $this->hasMany(Order::class,'order_shop','shop_id');
+    }
 }
