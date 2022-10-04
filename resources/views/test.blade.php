@@ -1,19 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Login Form</title>
-</head>
-
-<body>
-    <form method="post" action="/admin/create">
-        @csrf
-        <p>Title<br>
-            <input type="text" name="title" value=""></p>
-
-        <p>Description<br>
-            <textarea rows="5" cols="40" name="description"></textarea></p>
-
-        <p><button type="submit">Submit</button></p>
-    </form>
-</body>
+    <head></head>
+    <body>
+        <form action="#" method="post">
+            @csrf
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" placeholder="Enter email" id="email">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Name User:</label>
+                <input type="text" class="form-control" placeholder="Enter password" id="name">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </body>
 </html>
