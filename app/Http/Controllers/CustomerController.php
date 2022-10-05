@@ -9,7 +9,7 @@ class CustomerController extends Controller
 {
     public function getAll()
     {
-        $c=Customer::all();
-        return view('',compact('c'));
+        $cus=Customer::paginate(10);
+        return view('CustomerList',compact('cus'));
     }
 }

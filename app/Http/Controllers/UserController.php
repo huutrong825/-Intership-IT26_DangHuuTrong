@@ -62,4 +62,10 @@ class UserController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+
+    // Đổ data ra trang
+    public function getAll(){
+        $user=User::all();
+        return view('UserList',compact('user'));
+    }
 }

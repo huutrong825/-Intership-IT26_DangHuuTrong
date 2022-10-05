@@ -32,7 +32,9 @@ Route::get('name/{ten}',function($ten){
 
 Route::get('/Test',['as'=>'test','uses'=>'TestController@show']);
 
-
+Route::get('/Customer',['uses'=>'CustomerController@getAll']);
+Route::get('/User',['uses'=>'UserController@getAll']);
+Route::get('/Product',['uses'=>'ProductController@getAll']);
 // Dùng Auth kiểm tra Login
 Route::get('/login',['uses'=>'UserController@getLogin']);
 Route::post('/login',['uses'=>'UserController@postLogin']);

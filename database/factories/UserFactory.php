@@ -27,7 +27,7 @@ class UserFactory extends Factory
                 'remember_token' => Str::random(10),
                 'is_active'=>fake()->numberBetween($min = 0, $max = 1),
                 'is_delete'=>fake()->numberBetween($min = 0, $max = 1),
-                'group_role'=>fake()->numberBetween($min = 0, $max = 2),
+                'group_role'=>fake()->numberBetween($min = 1, $max = 3),
                 'last_login_at'=>date('Y-m-d H:i:s'),
                 'last_login_ip'=>fake()->numerify($string = '###.##.###'),
                 'created_at'=>date("Y-m-d"),
