@@ -44,6 +44,9 @@
       <input type="password" class="form-control" id="repass" placeholder="Enter repass" name="repass" require>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group" >
+			<label>Đã có tài khoản <a href="/login">Đăng nhập</a></label>
+		</div>
   </form>
 </div>
 

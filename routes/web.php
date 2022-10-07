@@ -49,4 +49,5 @@ Route::get('/admin',function(){
     return view('Admin');
 })->middleware('AdminLogin::class');
 
-
+Route::get('/User/AddUser',['uses'=>'UserController@getFormAdd']);
+Route::post('/User/AddUser',['uses'=>'UserController@postFormAdd']);

@@ -34,6 +34,12 @@
     <div class="add">
         <input type="submit" class="btn btn-primary" value="Thêm mới">
     </div>
+    <div class="add">
+        <input type="submit" class="btn btn-success" value="Import CSV">
+    </div>
+    <div class="add">
+        <input type="submit" class="btn btn-success" value="Export CSV">
+    </div>
 </div>
 <div>
     <table class="table table-hover">

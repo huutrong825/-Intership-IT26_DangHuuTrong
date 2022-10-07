@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'is_sales'=>fake()->numberBetween($min=0,$max=1),
             'description'=>fake()->sentence(),
             'created_at'=>date("Y-m-d"),
-            'updated_at'=>date("Y-m-d")
+            'updated_at'=>date("Y-m-d") 
         ];
     }
 }
