@@ -14,29 +14,17 @@
 
 <div class="main">
   <h2 style="text-align:center">Đăng nhập</h2>
-  @if(count($errors)>0)
-		<div class="alert alert-danger">
-			@foreach($errors->all() as $err)
-				{{$err}}<br>
-			@endforeach
-		</div>
-	@endif
-	@if(session('thongbao'))
-		<div class="alert alert-success">
-			{{session('thongbao')}}
-		</div>
-	@endif
   <form action="/login" method='post'>
       @csrf
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-      <p class="help is-danger">{{ $errors->first('email') }}</p>
+      <p style="color:red" class="help is-danger">{{ $errors->first('email') }}</p>
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
       <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-      <p class="help is-danger">{{ $errors->first('password') }}</p>
+      <p style="color:red" class="help is-danger">{{ $errors->first('password') }}</p>
     </div>
     <button style="display: block;text-align: center" type="submit" class="btn btn-primary">Login</button>
     <div>

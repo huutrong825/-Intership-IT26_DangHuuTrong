@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Định tuyến cơ bản
 Route::get('/hello', function () {
@@ -32,22 +32,38 @@ Route::get('name/{ten}',function($ten){
 
 Route::get('/Test',['as'=>'test','uses'=>'TestController@show']);
 
-Route::get('/Customer',['uses'=>'CustomerController@getAll']);
-Route::get('/User',['uses'=>'UserController@getAll']);
-Route::get('/Product',['uses'=>'ProductController@getAll']);
+
 // Dùng Auth kiểm tra Login
-Route::get('/login',['uses'=>'UserController@getLogin']);
-Route::post('/login',['uses'=>'UserController@postLogin']);
+Route::get('/login',['uses'=>'AuthController@getLogin']);
+Route::post('/login',['uses'=>'AuthController@postLogin']);
 
-Route::get('/register',['uses'=>'UserController@getRegister']);
-Route::post('/register',['uses'=>'UserController@postRegister']);
+Route::get('/register',['uses'=>'AuthController@getRegister']);
+Route::post('/register',['uses'=>'AuthController@postRegister']);
 
-Route::get('/logout',['uses'=>'UserController@getLogout']);
+Route::get('/logout',['uses'=>'AuthController@getLogout']);
 
-// Xác thực đăng nhập mới load trang
-Route::get('/admin',function(){
-    return view('Admin');
-})->middleware('AdminLogin::class');
+Route::group(['middleware'=>'AdminLogin'],function(){
 
-Route::get('/User/AddUser',['uses'=>'UserController@getFormAdd']);
-Route::post('/User/AddUser',['uses'=>'UserController@postFormAdd']);
+    Route::get('/admin',function(){
+        return view('Admin');
+    });
+
+    Route::group(['prefix'=>'User'],function(){
+
+        Route::get('',['uses'=>'UserController@getAll']);
+
+        Route::get('/AddUser',['uses'=>'UserController@getFormAdd']);
+        Route::post('/AddUser',['uses'=>'UserController@postFormAdd']);
+
+    });
+
+    Route::group(['prefix'=>'Customer'],function(){
+
+        Route::get('',['uses'=>'CustomerController@getAll']);
+    });
+
+    Route::group(['prefix'=>'Product'],function(){
+
+        Route::get('',['uses'=>'ProductController@getAll']);
+    });
+});

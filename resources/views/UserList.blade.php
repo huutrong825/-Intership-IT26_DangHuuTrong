@@ -37,7 +37,7 @@
         </div>
     </form>
     <div class="add">
-        <input type="submit" class="btn btn-primary" value="Thêm mới">
+    <a href='/User/AddUser'><input class="btn btn-primary" value="Thêm mới"></a>
     </div>
 </div>
 <div>

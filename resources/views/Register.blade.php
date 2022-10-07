@@ -13,35 +13,27 @@
 
 <div class="container">
   <h2 style="text-align:center">Tạo tài khoản</h2>
-  @if(count($errors)>0)
-		<div class="alert alert-danger">
-			@foreach($errors->all() as $err)
-				{{$err}}<br>
-			@endforeach
-		</div>
-	@endif
-	@if(session('thongbao'))
-		<div class="alert alert-success">
-			{{session('thongbao')}}
-		</div>
-	@endif
   <form action="" method='post'>
       @csrf
     <div class="form-group">
       <label for="name">User Name:</label>
-      <input type="text" class="form-control" id="txtname" placeholder="Enter user name" name="txtname" require>
+      <input type="text" class="form-control" id="txtname" placeholder="Enter user name" name="txtname">
+      <p style="color:red" class="help is-danger">{{ $errors->first('txtname') }}</p>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" require>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <p style="color:red" class="help is-danger">{{ $errors->first('email') }}</p>
     </div>
     <div class="form-group">
       <label for="pass">Password:</label>
-      <input type="password" class="form-control" id="pass" placeholder="Enter password" name="pass" require>
+      <input type="password" class="form-control" id="pass" placeholder="Enter password" name="pass">
+      <p style="color:red" class="help is-danger">{{ $errors->first('pass') }}</p>
     </div>
     <div class="form-group">
       <label for="repass">Repass:</label>
-      <input type="password" class="form-control" id="repass" placeholder="Enter repass" name="repass" require>
+      <input type="password" class="form-control" id="repass" placeholder="Enter repass" name="repass">
+      <p style="color:red" class="help is-danger">{{ $errors->first('repass') }}</p>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     <div class="form-group" >
